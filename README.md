@@ -15,11 +15,11 @@ Install with ``npm install``
 - **userAddress**: This is the wallet address of the user you would like to check the Health Factor of.
 - **contractAddress**: The address on the network of the [AAVE Pool Smart Contract](https://docs.aave.com/developers/deployed-contracts/deployed-contracts) for V3.
     *The current values that you can use for the mainnets (please check the above link as these may be outdated):*
-  - Avalanche Mainmarket: `0x794a61358D6845594F94dc1DB02A252b5b4814aD`
+  - This project also works with spark.fi, which is a fork of Aave: `0xC13e21B648A5Ee794902342038FF3aDAB66BE987`
 - 
   - **jsonRpcUrl**: JSON RPC endpoint of the node. 
   
-  - For others, you can use infura nodes. They offer both ethereum and polygon nodes for free. Get your own url from the [Infura Website](https://infura.io/dashboard).
+  - You can use infura nodes. They offer both ethereum and polygon nodes for free. Get your own url from the [Infura Website](https://infura.io/dashboard). For other Ethereum mainnet nodes, check [EthereumNodes.com](https://ethereumnodes.com/)
   
   - Avalanche - you can use [https://api.avax.network/ext/bc/C/rpc](https://api.avax.network/ext/bc/C/rpc) as the endpoint, it is operated by
 - **healthFactorThreshold**: What health factor is acceptable. If health factor is lower than this threshold, error is printed and process exits with error code Default: 1.5
