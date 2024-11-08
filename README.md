@@ -17,20 +17,24 @@ Install with ``npm install``
     *The current values that you can use for the mainnets (please check the above link as these may be outdated):*
   - This project also works with spark.fi, which is a fork of Aave: `0xC13e21B648A5Ee794902342038FF3aDAB66BE987`
 - 
-  - **jsonRpcUrl**: JSON RPC endpoint of the node. 
-  
-  - You can use infura nodes. They offer both ethereum and polygon nodes for free. Get your own url from the [Infura Website](https://infura.io/dashboard). For other Ethereum mainnet nodes, check [EthereumNodes.com](https://ethereumnodes.com/)
-  
-  - Avalanche - you can use [https://api.avax.network/ext/bc/C/rpc](https://api.avax.network/ext/bc/C/rpc) as the endpoint, it is operated by
+  - **jsonRpcUrls**: Semicolon-separated list of JSON RPC endpoints of the nodes. 
+
+  - For Ethereum mainnet nodes, check [EthereumNodes.com](https://ethereumnodes.com/)
+
+  - Avalanche - you can use [https://api.avax.network/ext/bc/C/rpc](https://api.avax.network/ext/bc/C/rpc) as the endpoint
 - **healthFactorThreshold**: What health factor is acceptable. If health factor is lower than this threshold, error is printed and process exits with error code Default: 1.5
 
-## Formatting
+### Example list of nodes:
 
-### Health Factor
+```bash
+export jsonRpcUrls="https://cloudflare-eth.com/;https://rpc.ankr.com/eth;https://eth.llamarpc.com;https://eth-mainnet.public.blastapi.io;https://rpc.flashbots.net/;https://ethereum.publicnode.com"
+```
+
+## Health Factor
 
 The health factor is obtained by querying the [AAVE Pool smart contract](https://docs.aave.com/developers/core-contracts/pool) and making use of it's ability to return a health factor for a given account.
 
-## Integration with monitoring
+# Integration with monitoring
 
 I use my own [signal-monitoring](https://github.com/jooray/signal-monitoring) infrastructure to get notified using Signal when health decreases.
 
