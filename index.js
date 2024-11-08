@@ -33,11 +33,11 @@ async function tryConnection(urls) {
 
       return { provider, aaveContract, blockNumber, network };
     } catch (error) {
-      console.error(`Connection failed for ${url}, trying another...`);
       urls = urls.filter(u => u !== url);
     }
   }
-  throw new Error('All connection attempts failed');
+  console.error('All connection attempts failed');
+  process.exit(1);
 }
 
 async function main() {
