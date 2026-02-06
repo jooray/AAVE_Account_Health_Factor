@@ -27,7 +27,7 @@ Install with ``npm install``
 ### Example list of nodes:
 
 ```bash
-export jsonRpcUrls="https://cloudflare-eth.com/;https://rpc.ankr.com/eth;https://eth.llamarpc.com;https://eth-mainnet.public.blastapi.io;https://rpc.flashbots.net/;https://ethereum.publicnode.com"
+export jsonRpcUrls="https://ethereum-rpc.publicnode.com;https://eth-mainnet.public.blastapi.io;https://1rpc.io/eth;https://eth-pokt.nodies.app;https://eth.drpc.org"
 ```
 
 ## Health Factor

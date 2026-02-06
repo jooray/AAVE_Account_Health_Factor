@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@aave/core-v3": "^1.13.1",
-    "@aave/protocol-v2": "^1.0.1",
+    "@aave/core-v3": "^1.19.3",
     "ethers": "^5.2.0"
   },
   "scripts": {

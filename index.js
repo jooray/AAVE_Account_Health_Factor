@@ -15,7 +15,7 @@ function getRandomUrl(urls) {
   return urls[Math.floor(Math.random() * urls.length)];
 }
 
-async function tryConnection(urls) {
+async function tryConnection(urls, userAddress) {
   while (urls.length > 0) {
     const url = getRandomUrl(urls);
     try {
@@ -31,8 +31,11 @@ async function tryConnection(urls) {
         continue;
       }
 
-      return { provider, aaveContract, blockNumber, network };
+      const userAccountData = await aaveContract.getUserAccountData(userAddress);
+
+      return { provider, aaveContract, blockNumber, network, userAccountData };
     } catch (error) {
+      console.log(`Node ${url} failed: ${error.message || error}, trying another...`);
       urls = urls.filter(u => u !== url);
     }
   }
@@ -52,12 +55,10 @@ async function main() {
   }
 
   const urls = jsonRpcUrls.split(';');
-  let provider, aaveContract, blockNumber, network;
 
   try {
-    ({ provider, aaveContract, blockNumber, network } = await tryConnection(urls));
+    const { userAccountData } = await tryConnection(urls, userAddress);
 
-    const userAccountData = await aaveContract.getUserAccountData(userAddress);
     const healthFactorHex = userAccountData.healthFactor._hex;
     const healthFactorWei = ethers.BigNumber.from(healthFactorHex);
     const healthFactor = healthFactorWei / ethers.constants.WeiPerEther;
