@@ -19,7 +19,7 @@ export jsonRpcUrl="https://api.avax.network/ext/bc/C/rpc"
 
 # change this to full path of AAVE_Account_Health_Factor
 pushd ~/AAVE_Account_Health_Factor > /dev/null
-node index.js
+node aave.js
 ERR=$?
 popd > /dev/null
 
